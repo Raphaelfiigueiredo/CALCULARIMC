@@ -1,5 +1,6 @@
 package com.example.calcularimc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         btnCalcular.setOnClickListener {
 
+            val intent = Intent(this,ResultadoActivity::class.java)
+
+
 
             val pesoStr: String = edtpeso.text.toString()
             val alturaStr: String = edtaltura.text.toString()
@@ -51,9 +55,13 @@ class MainActivity : AppCompatActivity() {
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
 
+                intent.putExtra("peso",peso.toDouble())
+
 
                 println("Raphael Acao do botao" + resultado)
             }
+
+            startActivity(intent)
 
 
         }
