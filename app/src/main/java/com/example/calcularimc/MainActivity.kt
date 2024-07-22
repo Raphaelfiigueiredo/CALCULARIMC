@@ -12,12 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Recuperar componentes EditText
-        // Criar uma varíavel e associar o componente de UI <EditText>
-        // Recuperar o botao da tela
-
-        // Colocar acao no botao setOnclickListener
-        // Recuperar o texto digitado no edt peso
 
 
         val edtpeso = findViewById<TextInputEditText>(R.id.edittext_peso)
@@ -61,9 +55,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("KEY_RESULT_IMC", resultado)
 
 
-                //Cores
-                //EditText background + Icone
-                // Gradiente + icone + titulo + descricao
+
             }
 
 
