@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         btnCalcular.setOnClickListener {
 
-            val intent = Intent(this,ResultadoActivity::class.java)
-
 
 
             val pesoStr: String = edtpeso.text.toString()
@@ -55,13 +53,20 @@ class MainActivity : AppCompatActivity() {
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
 
-                intent.putExtra("peso",peso.toDouble())
+
+                val intent = Intent(this,ResultadoActivity::class.java)
+                startActivity(intent)
 
 
-                println("Raphael Acao do botao" + resultado)
+                intent.putExtra("KEY_RESULT_IMC", resultado)
+
+
+                //Cores
+                //EditText background + Icone
+                // Gradiente + icone + titulo + descricao
             }
 
-            startActivity(intent)
+
 
 
         }
