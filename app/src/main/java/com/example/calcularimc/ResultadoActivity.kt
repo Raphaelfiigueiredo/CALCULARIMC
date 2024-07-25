@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-const val KEY_RESULT_IMC = "ResultActivity.KEY_IMC"
+const val KEY_RESULT_IMC = "ResultadoActivity.KEY_IMC"
 
 class ResultadoActivity : AppCompatActivity() {
 
@@ -16,19 +16,23 @@ class ResultadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_resultado)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0f)
+
+        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0.0f)
 
         val tvResult = findViewById<TextView>(R.id.tv_result)
 
         val tvClassificacao = findViewById<TextView>(R.id.tv_classificacao)
 
-        val classificacao: String = if (result <= 18.5f) {
+        if (result.toDouble() != 0.0) {
+            tvResult.text = result .toString()
+        } else {
+            println("semresultado")
+        }
+
+        tvResult.text = result.toString()
+
+        val classificacao = if (result <= 18.5f) {
             "MAGREZA"
         } else if (result > 18.5F && result <= 24.9f ) {
             "NORMAL"
